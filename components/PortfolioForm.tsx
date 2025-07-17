@@ -44,6 +44,9 @@ export default function PortfolioForm() {
     }, 500);
   };
 
+  const inputClass =
+    'w-full border border-gray-500 p-2 rounded bg-transparent text-white placeholder-white';
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-2xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb-4 text-white">Create Your Portfolio</h2>
@@ -52,7 +55,7 @@ export default function PortfolioForm() {
         <label className="block font-semibold text-white">Name</label>
         <input
           {...register('name')}
-          className="w-full border p-2 rounded"
+          className={inputClass}
           placeholder="Your full name"
           disabled={isLoading}
         />
@@ -62,7 +65,7 @@ export default function PortfolioForm() {
         <label className="block font-semibold text-white">Bio</label>
         <textarea
           {...register('bio')}
-          className="w-full border p-2 rounded"
+          className={inputClass}
           placeholder="A short personal bio"
           disabled={isLoading}
         />
@@ -74,7 +77,7 @@ export default function PortfolioForm() {
           <input
             key={field.id}
             {...register(`skills.${index}.value`)}
-            className="w-full border p-2 rounded mb-2"
+            className={inputClass + ' mb-2'}
             placeholder={`Skill #${index + 1}`}
             disabled={isLoading}
           />
@@ -82,7 +85,7 @@ export default function PortfolioForm() {
         <button
           type="button"
           onClick={() => addSkill({ value: '' })}
-          className="text-blue-600 text-sm mt-2"
+          className="text-blue-400 text-sm mt-2"
           disabled={isLoading}
         >
           + Add Skill
@@ -95,13 +98,13 @@ export default function PortfolioForm() {
           <div key={field.id} className="mb-4 space-y-2">
             <input
               {...register(`projects.${index}.title`)}
-              className="w-full border p-2 rounded"
+              className={inputClass}
               placeholder="Project Title"
               disabled={isLoading}
             />
             <textarea
               {...register(`projects.${index}.description`)}
-              className="w-full border p-2 rounded"
+              className={inputClass}
               placeholder="Project Description"
               disabled={isLoading}
             />
@@ -110,7 +113,7 @@ export default function PortfolioForm() {
         <button
           type="button"
           onClick={() => addProject({ title: '', description: '' })}
-          className="text-blue-600 text-sm"
+          className="text-blue-400 text-sm"
           disabled={isLoading}
         >
           + Add Project
@@ -121,7 +124,7 @@ export default function PortfolioForm() {
         <label className="block font-semibold text-white">Contact Info</label>
         <input
           {...register('contact')}
-          className="w-full border p-2 rounded"
+          className={inputClass}
           placeholder="Email, phone, or link"
           disabled={isLoading}
         />
@@ -129,7 +132,11 @@ export default function PortfolioForm() {
 
       <button
         type="submit"
-        className={`px-6 py-2 rounded text-white ${isLoading ? 'bg-gray-600 cursor-not-allowed' : 'bg-black hover:bg-gray-800'}`}
+        className={`px-6 py-2 rounded text-white ${
+          isLoading
+            ? 'bg-gray-600 cursor-not-allowed'
+            : 'bg-black hover:bg-gray-800'
+        }`}
         disabled={isLoading}
       >
         {isLoading ? 'Generating...' : 'Generate Portfolio'}
