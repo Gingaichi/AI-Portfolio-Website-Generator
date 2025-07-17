@@ -39,7 +39,6 @@ export default function PortfolioForm() {
   const onSubmit = (data: FormValues) => {
     setIsLoading(true);
     localStorage.setItem('portfolioData', JSON.stringify(data));
-    // Simulate a brief delay to see the loading state (optional)
     setTimeout(() => {
       router.push('/preview');
     }, 500);
@@ -47,10 +46,10 @@ export default function PortfolioForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-2xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Create Your Portfolio</h2>
+      <h2 className="text-2xl font-bold mb-4 text-white">Create Your Portfolio</h2>
 
       <div>
-        <label className="block font-semibold">Name</label>
+        <label className="block font-semibold text-white">Name</label>
         <input
           {...register('name')}
           className="w-full border p-2 rounded"
@@ -60,7 +59,7 @@ export default function PortfolioForm() {
       </div>
 
       <div>
-        <label className="block font-semibold">Bio</label>
+        <label className="block font-semibold text-white">Bio</label>
         <textarea
           {...register('bio')}
           className="w-full border p-2 rounded"
@@ -70,7 +69,7 @@ export default function PortfolioForm() {
       </div>
 
       <div>
-        <label className="block font-semibold">Skills</label>
+        <label className="block font-semibold text-white">Skills</label>
         {skillFields.map((field, index) => (
           <input
             key={field.id}
@@ -91,7 +90,7 @@ export default function PortfolioForm() {
       </div>
 
       <div>
-        <label className="block font-semibold">Projects</label>
+        <label className="block font-semibold text-white">Projects</label>
         {projectFields.map((field, index) => (
           <div key={field.id} className="mb-4 space-y-2">
             <input
@@ -119,7 +118,7 @@ export default function PortfolioForm() {
       </div>
 
       <div>
-        <label className="block font-semibold">Contact Info</label>
+        <label className="block font-semibold text-white">Contact Info</label>
         <input
           {...register('contact')}
           className="w-full border p-2 rounded"
