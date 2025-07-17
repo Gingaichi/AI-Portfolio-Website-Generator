@@ -12,7 +12,7 @@ export default function HomePage() {
       </div>
 
       <footer className="mt-16 text-gray-400 text-center text-sm select-none">
-        © {new Date().getFullYear()} YourName. Powered by Next.js & React Hook Form.
+        © {new Date().getFullYear()} AIportfolio.
       </footer>
     </main>
   )
